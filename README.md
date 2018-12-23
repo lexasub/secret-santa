@@ -1,8 +1,8 @@
 # secret-santa
 program for generating list for secret santa(game in winter)</br>
-!Compiling:\n
-gcc santa.c -o santa\n
-!Running:\n
-./santa <num_of_members_in_game>\n
-ex:\n
+!Compiling:</br>
+gcc santa.c -o santa</br>
+!Running:</br>
+./santa <num_of_members_in_game></br>
+ex:</br>
 ./santa 400
