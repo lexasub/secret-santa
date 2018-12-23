@@ -5,6 +5,7 @@
 #include <time.h>
 
 #define rnd(a,b) (a + rand() % (b - a + 1))
+//#define debug_on
 
 int main(int argc,char **argv)
 {
@@ -20,7 +21,9 @@ int main(int argc,char **argv)
 	int n = atoi(argv[1]);
 	int *arr = (int *)malloc(sizeof(int)*(n+1));//кто дарит
 	bool *b = (bool *)malloc(sizeof(bool)*(n+1));//кому дарят //0-не определили кто будет дарить, 1 - определили 
-	//printf("%d",n);
+	#ifdef debug_on 
+		printf("input:%d\n",n);
+	#endif
 	for(int i=0;i<=n;i++)
 	{
 		arr[i]=0;b[i]=0;
@@ -30,27 +33,35 @@ int main(int argc,char **argv)
 	int tmp_rnd;
 	int j;
 	int max_ex_cycle = 0;
-	//printf("start profiling:\n");
-	
+	#ifdef debug_on
+		printf("start profiling:\n");
+	#endif
 	for(int i = 1; i<=n; i++)
 	{
-		tmp_rnd = 0;//b[0]
-	//	j = 1;
+		tmp_rnd = 0;
+		#ifdef debug_on
+			j = 1;
+		#endif
 		while(b[tmp_rnd] || (tmp_rnd == 0))//ищем незанятого чела 
 		{
 			tmp_rnd=rnd(1,n);
 			if(tmp_rnd == i) tmp_rnd = 0;
-	//		j++;
+			#ifdef debug_on
+				j++;
+			#endif
 		}
-	//	if(j>max_ex_cycle) max_ex_cycle = j;
-	//	printf("\ti = %d:j = %d\n", i , j);
-
+		#ifdef debug_on
+			if(j>max_ex_cycle) max_ex_cycle = j;
+			printf("\ti = %d:j = %d\n", i , j);
+		#endif
 		//не может быть такой ситуации когда мы вообще чела не подберем
 		arr[i] = tmp_rnd;
 		b[tmp_rnd] = 1;
 	}
-//	printf("end profiling\n");
-//	printf("max_ex_cycle:%d\n", max_ex_cycle);
+	#ifdef debug_on
+		printf("end profiling\n");
+		printf("max_ex_cycle:%d\n", max_ex_cycle);
+	#endif
 	printf("input num:%d\n",n);
 	for(int i=1;i<=n;i++)
 	{
