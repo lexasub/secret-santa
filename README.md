@@ -1,5 +1,5 @@
 # secret-santa
-program for generating list for secret santa(game in winter)\n
+program for generating list for secret santa(game in winter)\n\r
 !Compiling:\n
 gcc santa.c -o santa\n
 !Running:\n
