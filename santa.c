@@ -42,6 +42,7 @@ int main(int argc,char **argv)
 		#ifdef debug_on
 			j = 1;
 		#endif
+		if((i + 1 == n) && !b[n]) tmp_rnd = n;
 		while(b[tmp_rnd] || (tmp_rnd == 0))//ищем незанятого чела 
 		{
 			tmp_rnd=rnd(1,n);
